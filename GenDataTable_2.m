@@ -12,29 +12,29 @@
 % Mosek, etc. 
 % Functions from 'DistanceBasedResourceQuantificationSetsMeasurements'
 
-% Authors: Lucas Tendick, Martin Kliesch, Hermann Kampermann, Dagmar Bruﬂ
+% Authors: Lucas Tendick, Martin Kliesch, Hermann Kampermann, Dagmar Bru√ü
 % Code by: Lucas Tendick
 % Last Update: 01.09.2022
 
-% Note: Denpending on your available RAM, it will not be possible
-% to go to high dimensions. In particular here the problem could 
+% Note: Depending on your available RAM, it will not be possible
+% to go to high dimensions d. In particular here the problem could 
 % most likely occure for d=7 for the settings m=7 and m=8. 
 % In general the runtime of this program is relatively long if performed
 % for all values in Table 2.
 % Try also using a different solver to improve the runtime. 
-% However, in the case d=7, m=7 and m=8, we do not even have to run the SDP since the lower bound
+% However, in the cases m=2, m=d and m=d+1, we do not even have to run the SDP since the lower bound
 % in Eq. (42) is analytically proven to be tight (to coincide with the
 % actual incompatibility in that case.
 % We can however, just run the primal and the dual of the SDP
 % 'by hand' to convince us, that the values coincide. 'By hand'
 % means here, that we can run the primal and dual SDP separetly
-% and enforce a particular feasible point, that we have shown 
-% analytically to be feasible.
-% We incooperate this here in a simple style by computing the distance 
-% to Max_eta which are the depolarized measurements with eta = (d*T-m)/(d*m-m); 
+% and enforce a particular feasible point.
+% We incooperate this here in a very simplified style by computing the distance 
+% to Max_eta which are the depolarized measurements with eta = (d*T-m)/(d*m-m) and comparing
+% it to the improved lower bound.
 
 
-dim = [2,3];
+dim = [2,3,5,7];
 
 for cnt = 1:size(dim,2)
 clear Max
