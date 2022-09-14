@@ -11,6 +11,7 @@
 % Requires: CVX (http://cvxr.com/cvx/), A solver like SDPT3, Sedumi or
 % Mosek, etc. 
 % Functions from 'DistanceBasedResourceQuantificationSetsMeasurements'
+% Uses explicitly the function 'genSinglePartyArray' from SteeringReview
 
 % Authors: Lucas Tendick, Martin Kliesch, Hermann Kampermann, Dagmar Bruß
 % Code by: Lucas Tendick
